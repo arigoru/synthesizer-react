@@ -1,32 +1,117 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+
+  /* color sheme starts here */
+  --baseHue: 300;
+  --saturation: 1;
+  --hue2: calc(var(--baseHue) + 80);
+  --hue3: calc(var(--baseHue) + 200);
+  --hue4: calc(var(--baseHue) + 240);
+
+  --theme-color-1: hsl(var(--hue4), calc(20% * var(--saturation)), 20%);
+  --theme-color-2: hsl(var(--hue4), calc(80% * var(--saturation)), 15%);
+  --theme-color-3: hsl(var(--hue4), calc(80% * var(--saturation)), 25%);
+  --theme-color-4: hsl(var(--hue3), calc(40% * var(--saturation)), 60%);
+  --theme-color-5: hsl(var(--hue2), calc(40% * var(--saturation)), 80%);
+  --theme-color-6: hsl(var(--baseHue), calc(75% * var(--saturation)), 85%);
+}
+
 .App {
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 40vw 60vw;
+  grid-template-rows: 50vh 50vh;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#drum-machine {
+  background: var(--theme-color-1);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 22% 22% 22% 22%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
+  grid-gap: 6px;
+}
+#display {
+  background: var(--theme-color-5);
+  grid-column-start: span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.drum-pad {
+  background: var(--theme-color-4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+audio {
+  display: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#control-wrapper {
+  background: var(--theme-color-3);
+}
+
+#piano {
+  background: var(--theme-color-1);
+  width: 100vw;
+  height: 50vh;
+  grid-column-start: span 2;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+#piano-control {
+  background: var(--theme-color-4);
+  width: 80%;
+  height: 90%;
+  margin: 5px 5px 0px 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#piano-keys {
+  background: var(--theme-color-2);
+  width: 80%;
+  height: 90%;
+  margin: 0px 5px 5px 5px;
+  display: grid;
+  grid-template-columns: 14% 14% 14% 14% 14% 14% 14% 2%;
+  grid-template-rows: 90%;
+  justify-content: center;
+  align-content: start;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.piano-octave {
+  background-color: var(--theme-color-3);
+  display: flex;
+  flex-flow: row nowrap;
+}
+.piano-key {
+  background: var(--theme-color-6);
+  width: 100%;
+  height: 100%;
+  border-left: 1px solid black;
+}
+
+.piano-octave-last {
+  border-right: 1px solid black;
+  /*   background : red; */
+}
+
+.piano-key-black {
+  background: black;
+  width: 80%;
+  height: 60%;
+  display: block;
+  position: relative;
+  right: 40%;
 }
