@@ -16,7 +16,6 @@ class App extends Component {
   };
 
   playSoundFile = soundId => {
-    console.log("click ", soundId);
     this.updateDisplay(soundId);
     const sound = document.getElementById(soundId);
     sound.currentTime = 0;
@@ -24,32 +23,32 @@ class App extends Component {
   };
 
   keyDownHandler = e => {
-    switch (e.key) {
-      case "q":
+    switch (e.keyCode) {
+      case 81:
         this.playSoundFile("Q");
         break;
-      case "w":
+      case 87:
         this.playSoundFile("W");
         break;
-      case "e":
+      case 69:
         this.playSoundFile("E");
         break;
-      case "a":
+      case 65:
         this.playSoundFile("A");
         break;
-      case "s":
+      case 83:
         this.playSoundFile("S");
         break;
-      case "d":
+      case 68:
         this.playSoundFile("D");
         break;
-      case "z":
+      case 90:
         this.playSoundFile("Z");
         break;
-      case "x":
+      case 88:
         this.playSoundFile("X");
         break;
-      case "c":
+      case 67:
         this.playSoundFile("C");
         break;
       default:
@@ -58,15 +57,21 @@ class App extends Component {
   };
 
   componentDidMount() {
-    document.addEventListener("keydown", this.keyDownHandler);
+    // document.addEventListener("keydown", this.keyDownHandler);
+    this.appDiv.focus();
   }
   componentWillUnmount() {
-    document.removeEventListener("keydown", this.keyDownHandler);
+    // document.removeEventListener("keydown", this.keyDownHandler);
   }
 
   render() {
     return (
-      <div tabIndex="0" className="App" ref={ref => (this.appDiv = ref)}>
+      <div
+        tabIndex="0"
+        className="App"
+        onKeyDown={this.keyDownHandler}
+        ref={ref => (this.appDiv = ref)}
+      >
         <DrumMachine
           displayText={this.state.drumDisplayText}
           playHandler={this.playSoundFile}
