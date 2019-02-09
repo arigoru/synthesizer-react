@@ -12,14 +12,23 @@ class Octave extends Component {
 
   render() {
     return (
-      <div className={this.getClasses()}>{renderKeys(this.props.keys)}</div>
+      <div className={this.getClasses()}>
+        {renderKeys(this.props.keys, this.props.playMidiHandler)}
+      </div>
     );
   }
 }
 
-function renderKeys(keys) {
+function renderKeys(keys, handler) {
   return keys.map(e => {
-    return <Key key={e.note} note={e.note} hasFlat={e.hasFlat} />;
+    return (
+      <Key
+        playMidiHandler={handler}
+        key={e.note}
+        note={e.note}
+        hasFlat={e.hasFlat}
+      />
+    );
   });
 }
 

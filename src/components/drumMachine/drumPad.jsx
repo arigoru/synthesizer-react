@@ -6,7 +6,7 @@ class DrumPad extends Component {
     return (
       <div
         onClick={this.props.onClick}
-        className="drum-pad"
+        className="drum-pad noselect"
         id={`drum${this.props.id}`}
       >
         <audio src={this.props.soundUrl} className="clip" id={this.props.id} />

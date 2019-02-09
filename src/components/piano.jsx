@@ -8,7 +8,7 @@ class Piano extends Component {
     return (
       <div id="piano">
         <Control />
-        <Keyboard />
+        <Keyboard playMidiHandler={this.props.playMidiHandler} />
       </div>
     );
   }

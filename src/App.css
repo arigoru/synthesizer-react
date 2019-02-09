@@ -24,7 +24,17 @@ body {
   display: grid;
   grid-template-columns: 40vw 60vw;
   grid-template-rows: 50vh 50vh;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 }
+
+.MIDISounds {
+  display: none;
+}
+
 #drum-machine {
   background: var(--theme-color-1);
   width: 100%;
@@ -114,4 +124,14 @@ audio {
   display: block;
   position: relative;
   right: 40%;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
