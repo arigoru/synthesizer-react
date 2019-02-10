@@ -224,7 +224,7 @@ class App extends Component {
   };
 
   playMidiNote = note => {
-    this.midiSounds.playChordNow(3, [note], 2.5); // 24 is first key
+    this.midiSounds.playChordNow(3, [note], 1); // 24 is first key
   };
 
   componentDidMount() {
